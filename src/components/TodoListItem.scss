@@ -21,15 +21,15 @@
             margin-left: 0.5rem;
             flex: 1;
         }
-    }
 
-    &.checked {
-        svg {
-            color: #22b8cf;
-        }
-        .text {
-            color: #adb5bd;
-            text-decoration: line-through;
+        &.checked {
+            svg {
+                color: #22b8cf;
+            }
+            .text {
+                color: #adb5bd;
+                text-decoration: line-through;
+            }
         }
     }
 
