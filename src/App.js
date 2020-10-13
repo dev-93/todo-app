@@ -18,7 +18,7 @@ function createBulkTodos() {
 function App() {
     const [todos, setTodos] = useState(createBulkTodos);
 
-    const nextId = useRef(2501);
+    const nextId = useRef(4);
 
     const onInsert = useCallback(
         (text) => {
@@ -29,27 +29,20 @@ function App() {
             };
             setTodos(todos.concat(todo));
             nextId.current += 1;
-        },
-        [todos]
-    );
+        },[]);
 
     const onRemove = useCallback(
         (id) => {
             setTodos(todos.filter((todo) => todo.id !== id));
-        },
-        [todos]
-    );
+        },[]);
 
-    const onToggle = useCallback(
-        (id) => {
-            setTodos(
-                todos.map((todo) =>
-                    todo.id === id ? { ...todo, checked: !todo.checked } : todo
-                )
-            );
-        },
-        [todos]
-    );
+    const onToggle = useCallback(id => {
+        setTodos( todos =>
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+            ),
+        );
+    }, []);
 
     return (
         <TodoTemplate>
