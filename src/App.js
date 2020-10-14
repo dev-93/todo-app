@@ -2,7 +2,6 @@ import React, { useRef, useCallback, useReducer } from "react";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
-import { dispatch } from "../../../../AppData/Local/Microsoft/TypeScript/4.0/node_modules/rxjs/internal/observable/pairs";
 
 function createBulkTodos() {
     const array = [];
@@ -34,8 +33,6 @@ function todoReducer(todos, action) {
 const App = () => {
     const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
-    // 고유값으로 사용될 id
-    // ref를 사용하여 변수 담기
     const nextId = useRef(2501);
 
     const onInsert = useCallback((text) => {
